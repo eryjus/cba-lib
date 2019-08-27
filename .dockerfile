@@ -15,8 +15,9 @@ RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /usr/mys
   
 ## -- install mysql
 RUN apt-get update 
-RUN echo mysql-server-8.0 mysql-server/root_password password password | debconf-set-selections
-RUN echo mysql-server-8.0 mysql-server/root_password_again password password | debconf-set-selections
+RUN echo 'mysql-community-server mysql-community-server/root-pass password root' | debconf-set-selections
+RUN echo 'mysql-community-server mysql-community-server/re-root-pass password root' | debconf-set-selections
+RUN echo 'mysql-community-server mysql-server/default-auth-override select Use Legacy Authentication Method (Retain MySQL 5.x Compatibility)' | debconf-set-selections
 RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
   
