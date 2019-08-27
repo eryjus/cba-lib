@@ -14,7 +14,7 @@ RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /usr/mys
   && rm /usr/mysql-apt-config_0.8.13-1_all.deb
   
 RUN apt-get update 
-RUN apt-get install $MYSQL_SERVER_PACKAGE $MYSQL_SHELL_PACKAGE -y
+RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
   
 ## RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5                           
