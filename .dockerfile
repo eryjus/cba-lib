@@ -11,14 +11,15 @@ USER root
 ## -- get the apt repo
 RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /usr/mysql-apt-config_0.8.13-1_all.deb \
   && dpkg -i /usr/mysql-apt-config_0.8.13-1_all.deb
-RUN apt-get update && apt-get upgrade -y
-
+  && rm /usr/mysql-apt-config_0.8.13-1_all.deb
+  
+RUN apt-get update 
+RUN apt-get install $MYSQL_SERVER_PACKAGE $MYSQL_SHELL_PACKAGE -y
+RUN apt-get upgrade -y
+  
 ## RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5                           
 # RUN apt-get -y install https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb   
 # RUN echo "deb http://repo.mysql.com/apt/ubuntu/ disco mysql-8.0" >  /etc/apt/sources.list.d/mysql.list 
-
-#    && apt-get -y install $MYSQL_SERVER_PACKAGE
-
 
 
 # give control back for the IDE to run
