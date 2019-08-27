@@ -20,11 +20,14 @@ RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
 
 ## -- start mysql
-COPY start_docker.sh /usr/start_docksr.sh
-CMD [ "/usr/start_docker.sh" ]
+#COPY start_docker.sh /usr/start_docksr.sh
+#CMD [ "/usr/start_docker.sh" ]
 
 
 ##
 ## -- give control back for the IDE to run
 ##    ------------------------------------
 USER root
+
+
+CMD ["mysqld"]
