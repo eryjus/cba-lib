@@ -20,8 +20,8 @@ RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
 
 ## -- start mysql
-RUN systemctl enable mysql
-#RUN systemctl start mysql
+COPY start_docker.sh /usr/start_docksr.sh
+RUN /usr/start_docker.sh
 
 
 ##
