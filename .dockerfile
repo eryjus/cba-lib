@@ -20,7 +20,8 @@ RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
 
 ## -- start mysql
-#RUN service mysql start
+RUN systemctl enable mysql
+RUN systemctl start mysql
 
 
 ##
