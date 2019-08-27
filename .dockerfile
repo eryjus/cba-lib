@@ -21,7 +21,7 @@ RUN apt-get upgrade -y
 
 ## -- start mysql
 COPY start_docker.sh /usr/start_docksr.sh
-RUN /usr/start_docker.sh
+CMD [ "/usr/start_docker.sh" ]
 
 
 ##
