@@ -10,7 +10,7 @@ USER root
 
 ## -- get the apt repo
 RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /usr/mysql-apt-config_0.8.13-1_all.deb \
-  && dpkg -i /usr/mysql-apt-config_0.8.13-1_all.deb
+  && dpkg -i /usr/mysql-apt-config_0.8.13-1_all.deb \
   && rm /usr/mysql-apt-config_0.8.13-1_all.deb
   
 RUN apt-get update 
