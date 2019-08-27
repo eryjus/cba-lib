@@ -13,7 +13,10 @@ RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /usr/mys
   && echo 4 | dpkg -i /usr/mysql-apt-config_0.8.13-1_all.deb \
   && rm /usr/mysql-apt-config_0.8.13-1_all.deb
   
+## -- install mysql
 RUN apt-get update 
+RUN echo mysql-server-8.0 mysql-server/root_password password password | debconf-set-selections
+RUN echo mysql-server-8.0 mysql-server/root_password_again password password | debconf-set-selections
 RUN apt-get install mysql-server mysql-shell -y
 RUN apt-get upgrade -y
   
