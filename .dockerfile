@@ -9,8 +9,8 @@ ARG MYSQL_SHELL_PACKAGE=mysql-shell-8.0.17
 USER root
 
 ## -- get the apt repo
-RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /workspace/mysql-apt-config_0.8.13-1_all.deb 
-#  && dpkg /workspace/mysql-apt-config_0.8.13-1_all.deb
+RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O /tmp/mysql-apt-config_0.8.13-1_all.deb 
+#  && dpkg /tmp/mysql-apt-config_0.8.13-1_all.deb
 
 
 ## RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5                           
