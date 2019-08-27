@@ -21,7 +21,7 @@ RUN apt-get upgrade -y
 
 ## -- start mysql
 RUN systemctl enable mysql
-RUN systemctl start mysql
+#RUN systemctl start mysql
 
 
 ##
