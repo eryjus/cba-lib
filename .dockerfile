@@ -38,7 +38,7 @@ RUN     apt-get upgrade -y -q
 ## -- Now, we need to prepare for MySQL
 ##    ---------------------------------
 USER    root
-RUN     mkdir /var/run/mysqld 
+RUN     mkdir -p /var/run/mysqld 
 RUN     chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
 COPY    mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 COPY    client.cnf /etc/mysql/mysql.conf.d/client.cnf
