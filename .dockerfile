@@ -40,6 +40,7 @@ RUN     apt-get upgrade -y -q
 USER    root
 RUN     mkdir -p /var/run/mysqld 
 RUN     mkdir -p /var/lib/mysql-upgrade
+RUN     mkdir -p /usr/share/mysql
 RUN     chown -R gitpod:gitpod /etc/mysql 
 RUN     chown -R gitpod:gitpod /var/run/mysqld 
 RUN     chown -R gitpod:gitpod /var/log/mysql 
@@ -47,6 +48,7 @@ RUN     chown -R gitpod:gitpod /var/lib/mysql
 RUN     chown -R gitpod:gitpod /var/lib/mysql-files 
 RUN     chown -R gitpod:gitpod /var/lib/mysql-keyring 
 RUN     chown -R gitpod:gitpod /var/lib/mysql-upgrade
+RUN     chown -R gitpod:gitpod /usr/share/mysql 
 COPY    mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 COPY    client.cnf /etc/mysql/mysql.conf.d/client.cnf
 COPY    launch.sh /etc/mysql/mysql-bashrc-launch.sh
