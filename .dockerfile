@@ -39,7 +39,7 @@ RUN     apt-get upgrade -y -q
 ##    ---------------------------------
 USER    root
 VOLUME  /var/lib/mysql
-RUN     chown +R gitpod:gitpod /var/lib/mysql
+#RUN     chown +R gitpod:gitpod /var/lib/mysql
 
 
 ##
