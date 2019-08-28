@@ -62,6 +62,7 @@ RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 ##
 ## -- clean up and give control back for the IDE to run
 ##    -------------------------------------------------
+USER    root
 RUN     apt-get clean
 RUN     rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
 USER    root
