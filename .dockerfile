@@ -50,6 +50,7 @@ RUN     chown -R gitpod:gitpod /var/lib/mysql-upgrade
 COPY    mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 COPY    client.cnf /etc/mysql/mysql.conf.d/client.cnf
 COPY    launch.sh /etc/mysql/mysql-bashrc-launch.sh
+RUN     chmod +x /etc/mysql/mysql-bashrc-launch.sh
 
 
 ##
