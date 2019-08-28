@@ -8,7 +8,7 @@ then
     touch /var/run/mysqld/gitpod-init.lock
 
     # initialize database structures on disk, if needed
-    [ ! -d /workspace/mysql ] && mysqld --initialize-insecure && mysql_secure_installation
+    [ ! -d /workspace/mysql ] && mysqld
 
     # launch database, if not running
     [ ! -e /var/run/mysqld/mysqld.pid ] && mysqld --daemonize
