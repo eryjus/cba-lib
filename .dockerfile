@@ -68,5 +68,6 @@ RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 USER    root
 RUN     apt-get clean
 RUN     rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
+EXPOSE  3306 33060
 USER    root
 
