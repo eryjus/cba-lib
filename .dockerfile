@@ -6,8 +6,8 @@ USER    gitpod
 ## -- Set up the environment for a Docker build -- want debconf-utils for later
 ##    -------------------------------------------------------------------------
 RUN     sudo apt-get update \
-  &&    sudo apt-get install debconf-utils -y -q
-  &&    sudo apt-get clean
+  &&    sudo apt-get install debconf-utils -y -q \
+  &&    sudo apt-get clean \
   &&    sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
 
 
@@ -22,17 +22,17 @@ RUN     sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O
 ##
 ## -- Install MySQL server on top of the basic Docker Container & Freshen up all the other packages just in case
 ##    -----------------------------------------------------------------------------------------------------------
-RUN     sudo apt-get update 
-  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get install mysql-server mysql-shell -y -q
-  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y -q
-  &&    sudo apt-get clean
+RUN     sudo apt-get update \
+  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get install mysql-server mysql-shell -y -q \
+  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y -q \
+  &&    sudo apt-get clean \
   &&    sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
 
 
 ##
 ## -- Now, we need to prepare for MySQL
 ##    ---------------------------------
-RUN     sudo mkdir -p /var/run/mysqld /var/lib/mysql-upgrade /usr/share/mysql
+RUN     sudo mkdir -p /var/run/mysqld /var/lib/mysql-upgrade /usr/share/mysql \
   &&    sudo chown -R gitpod:gitpod /etc/mysql /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade /usr/share/mysql 
 COPY    mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 COPY    client.cnf /etc/mysql/mysql.conf.d/client.cnf
