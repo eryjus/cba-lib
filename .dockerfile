@@ -22,11 +22,13 @@ RUN     sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb -O
 ##
 ## -- Install MySQL server on top of the basic Docker Container & Freshen up all the other packages just in case
 ##    -----------------------------------------------------------------------------------------------------------
-RUN     sudo apt-get update \
-  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get install mysql-server mysql-shell -y -q \
-  &&    DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -y -q \
-  &&    sudo apt-get clean \
-  &&    sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
+USER    root
+RUN     apt-get update \
+  &&    DEBIAN_FRONTEND=noninteractive apt-get install mysql-server mysql-shell -y -q \
+  &&    DEBIAN_FRONTEND=noninteractive  apt-get upgrade -y -q \
+  &&    apt-get clean \
+  &&    rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* 
+ USER   gitpod
 
 
 ##
